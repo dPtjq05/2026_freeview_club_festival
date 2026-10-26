@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동아리 축제 안내장</title>
+
+
+
+
+
+    <style>
+        body {
+            background-color: #0B1433;
+            color: #EEF0FF;
+            font-family: sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #A3162B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #E3BE6B;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>2026 동연회 영화제</h1>
+    <p id="message">현재 신청 인원: 0명</p>
+    <button id="plusBtn">신청 인원 +1</button>
+    <div>
+        <input type="text", id ="name", placeholder="예: 송예섭">
+        <br>
+        <button id = "greetBtn"> 신청하기 </button>
+    </div>
+    <script>
+        let count = 0;
+        const message = document.querySelector('#message');
+        const plusBtn = document.querySelector('#plusBtn');
+
+        plusBtn.addEventListener('click', ()=> {
+            count = count + 1;
+            message.textContent = `현재 신청 인원: ${count}명`;
+        });
+        // 여기에 직접 JavaScript를 작성해 보세요.
+    </script>
+</body>
+</html>
