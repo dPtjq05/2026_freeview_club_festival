@@ -26,6 +26,18 @@ function doPost(event) {
 
     setupSheet();
     const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    const id = String(data.id).trim();
+    const lock = LockService.getScriptLock();
+    lock.waitLock(10000);
+    try {
+      const ids = sheet.getLastRow() >= 2
+        ? sheet.getRange(2, 7, sheet.getLastRow() - 1, 1).getValues().flat().map(String)
+        : [];
+      if (ids.includes(id)) {
+        return ContentService
+          .createTextOutput(JSON.stringify({ ok: true, duplicate: true }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
     sheet.appendRow([
       new Date(Number(data.t) || Date.now()),
       String(data.name).trim(),
@@ -33,8 +45,11 @@ function doPost(event) {
       String(data.affiliation).trim(),
       String(data.programName || data.program).trim(),
       String(data.note || '').trim(),
-      String(data.id).trim()
+      id
     ]);
+    } finally {
+      lock.releaseLock();
+    }
 
     return ContentService
       .createTextOutput(JSON.stringify({ ok: true }))

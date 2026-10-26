@@ -704,6 +704,7 @@ async function submitApplication(application){
     await store.set(AK, applications, false);
     return '현재 기기에 임시 저장됐어요. 운영팀 공유를 위해 Apps Script URL을 설정해 주세요.';
   }
+  let applicationSubmitting = false;
   try {
     await fetch(endpoint, {
       method:'POST',
@@ -822,6 +823,13 @@ document.addEventListener('submit', async e => {
   const f = e.target;
   if (f.dataset.applyForm) {
     e.preventDefault();
+    if (applicationSubmitting) return;
+    applicationSubmitting = true;
+    const submitButton = f.querySelector('button[type="submit"]');
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = '전송 중...';
+    }
     const data = new FormData(f);
     const application = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 8),
@@ -833,14 +841,35 @@ document.addEventListener('submit', async e => {
       note: String(data.get('note') || '').trim(),
       t: Date.now()
     };
-    if (!application.name || !application.phone || !application.affiliation || !data.get('consent')) return;
-    if (!/^[0-9０-９+()\-\s]{8,20}$/.test(application.phone)) {
-      toast('전화번호 형식을 확인해 주세요');
+    if (!application.name || !application.phone || !application.affiliation || !data.get('consent')) {
+      applicationSubmitting = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = '신청서 제출하기';
+      }
       return;
     }
-    const resultMessage = await submitApplication(application);
-    $('#sheetBody').innerHTML = `<div class="apply-done"><strong>신청이 완료됐어요</strong><p>입력한 연락처로 행사 안내가 갈 수 있어요.<br>참여해 주셔서 감사합니다.</p><button class="btn ghost small" type="button" data-close-sheet>닫기</button></div>`;
-    toast(resultMessage);
+    if (!/^[0-9０-９+()\-\s]{8,20}$/.test(application.phone)) {
+      toast('전화번호 형식을 확인해 주세요');
+      applicationSubmitting = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = '신청서 제출하기';
+      }
+      return;
+    }
+    try {
+      const resultMessage = await submitApplication(application);
+      $('#sheetBody').innerHTML = `<div class="apply-done"><strong>신청이 완료됐어요</strong><p>입력한 연락처로 행사 안내가 갈 수 있어요.<br>참여해 주셔서 감사합니다.</p><button class="btn ghost small" type="button" data-close-sheet>닫기</button></div>`;
+      toast(resultMessage);
+    } catch (error) {
+      applicationSubmitting = false;
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = '신청서 제출하기';
+      }
+      toast(error.message);
+    }
     return;
   }
   if (f.dataset.join) {
