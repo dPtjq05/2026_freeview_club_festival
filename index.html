@@ -172,6 +172,39 @@ section h2::after{content:"";position:absolute;left:50%;bottom:-10px;width:44px;
 .plan-stage{perspective:1100px;padding:34px 6px 46px}
 .plan{display:grid;grid-template:repeat(3,1fr)/repeat(4,1fr);gap:7px;aspect-ratio:4/3;padding:9px;border-radius:12px;background-color:rgba(255,255,255,.04);background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.2px);background-size:12px 12px;border:1px solid var(--line);transform-style:preserve-3d;transform:rotateX(50deg) rotateZ(-30deg) scale(.92);transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .plan.flat{transform:none}
+/* B1·1F·4F 공통 지도: 각 층의 c/r 좌표를 20열×14행 격자에 배치 */
+.plan.f4-grid{grid-template:repeat(14,minmax(18px,1fr))/repeat(20,1fr);aspect-ratio:20/14;padding:9px;gap:0;transform:none;background:rgba(255,255,255,.04);border-color:var(--line)}
+/* 부스 공간: --c는 위쪽 테두리 색, --f는 카드 배경 색 */
+.plan.f4-grid .f4-card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-width:0;margin:3px;padding:6px;border:0;border-top:4px solid var(--c);border-radius:10px;background:var(--f);color:var(--card-ink);text-align:left;cursor:pointer;overflow:hidden}
+.plan.f4-grid .f4-card:hover{transform:translateY(-2px)}
+.plan.f4-grid .f4-card.sel{outline:3px solid #fff;z-index:2}
+.plan.f4-grid .f4-card small{font-size:11px;color:rgba(30,28,52,.65);margin-bottom:2px}
+.plan.f4-grid .f4-card b{font-size:13px;line-height:1.25}
+.plan.f4-grid .f4-card.vertical{writing-mode:vertical-rl;align-items:center;justify-content:center;text-align:center;padding:6px 0}
+.plan.f4-grid .f4-card.vertical small{display:none}
+/* 시설·복도·화장실: 클릭하지 않는 선 구역 */
+.plan.f4-grid .f4-facility{display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.1);color:#f5f3fb;margin:0;border:0;border-radius:0;outline:2px solid rgba(220,220,235,.55);outline-offset:-1px;cursor:default;text-align:center}
+.plan.f4-grid .f4-facility small{font-size:clamp(11px,2.4vw,15px);font-weight:700;line-height:1.25;color:#f5f3fb;text-shadow:0 1px 3px #15152b}
+.plan.f4-grid .f4-facility:hover{transform:none;background:rgba(255,255,255,.16)}
+.plan.f4-grid .f4-facility.vertical{writing-mode:vertical-rl;overflow:visible}
+.plan.f4-grid .f4-facility.vertical small{font-size:clamp(8px,2vw,13px);line-height:1;white-space:nowrap}
+.plan.f4-grid .f4-elevator{font-size:clamp(20px,5vw,32px);text-shadow:none}
+.plan.f4-grid .f4-elevator.vertical{writing-mode:horizontal-tb;overflow:hidden}
+.plan.f4-grid .f4-elevator small{font-size:clamp(20px,5vw,32px);line-height:1}
+.plan.f4-grid .f4-elevator{background:#b9e8f5;color:#173b52;outline:3px solid #55b8d2;outline-offset:-2px}
+.plan.f4-grid .f4-elevator:hover{background:#b9e8f5}
+/* 편의시설: 초록색 카드 / 공연 공간: 분홍색 카드 */
+.plan.f4-grid .f4-amenity{background:#d9f0e3;color:#1f4634;border-top-color:#7fcfaa;cursor:default}
+.plan.f4-grid .f4-show{background:var(--FILLS, #f8dbe5);color:var(--card-ink);border-top-color:#e48fae;cursor:default}
+.plan.f4-grid .f4-amenity small,.plan.f4-grid .f4-show small{color:inherit;text-shadow:none}
+.plan.f5-grid .f4-card{margin:0;border-radius:10px}
+.plan.f5-grid .f4-facility{margin:0;border-radius:0;outline:2px solid rgba(220,220,235,.55);outline-offset:-1px}
+.plan.f5-grid .f4-card:hover{transform:none;filter:brightness(1.04)}
+.plan.f5-grid .f4-card.sel{outline:3px solid #fff;z-index:2}
+.plan.f4-grid .f4-facility.vertical small{display:block}
+/* 사용하지 않는 공간: 하나의 영역으로 묶고 X 표시 */
+.plan.f4-grid .f4-blocked{margin:0;border:0;border-radius:0;outline:1px solid var(--line);outline-offset:-.5px;cursor:default;background:transparent}
+.plan.f4-grid .f4-blocked:hover{transform:none}
 .room{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;padding:8px;border-radius:7px;border:0;border-top:3px solid var(--c);background:var(--f);color:var(--card-ink);text-align:left;cursor:pointer;transform:translateZ(14px);box-shadow:5px 7px 0 rgba(10,10,28,.55);transition:transform .3s,box-shadow .3s;overflow:hidden;min-width:0}
 .plan.flat .room{transform:none;box-shadow:none}
 .room.sel{transform:translateZ(34px);box-shadow:0 0 0 2px #fff,0 0 28px var(--c)}
@@ -181,7 +214,6 @@ section h2::after{content:"";position:absolute;left:50%;bottom:-10px;width:44px;
 .room.empty .rn{color:var(--mute)}
 .badge{position:absolute;top:6px;right:6px;font-size:10.5px;font-weight:700;background:var(--rose);color:#fff;border-radius:999px;padding:1px 7px}
 .map-tools{display:flex;justify-content:space-between;align-items:center;gap:10px}
-#viewToggle{white-space:nowrap;flex:none}
 .legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--ink)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border-radius:2px;background:var(--c)}
@@ -413,7 +445,6 @@ footer .end{display:block;font-family:'Black Han Sans',sans-serif;font-size:26px
     <div class="plan-stage"><div class="plan" id="plan"></div></div>
     <div class="map-tools">
       <div class="legend" id="legend"></div>
-      <button class="btn ghost small" id="viewToggle" aria-pressed="false">평면으로 보기</button>
     </div>
   </section>
 
@@ -515,7 +546,7 @@ const CONFIG = {
   timeline: [
     { cat:'부스',  title:'부스 체험 활동', time:'', floor:'1F', sum:'전층 부스 10곳 · 1층 메인' },
     { cat:'공연',  title:'공연 관람',     time:'', floor:'B1', sum:'지하 1층 움 · 카포에라 · 케이팝 댄스 · 밴드' },
-    { cat:'강연',  title:'강의 청강',     time:'', floor:'2F', sum:'경제 학회 강연' },
+    { cat:'강연', title:'강의 청강',     time:'', floor:'5F', sum:'경제 학회 강연' },
     { cat:'교류팅', title:'교류팅',        time:'', floor:'4F', sum:'사전 신청자 · 교류 게임 · 쿠킹 클래스' },
     { cat:'뒷풀이', title:'뒷풀이',        time:'', floor:'1F', sum:'1층 메인 홀' }
   ],
@@ -529,7 +560,6 @@ const CONFIG = {
     booth7:    { name:'부스 7', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
     booth8:    { name:'부스 8', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
     booth9:    { name:'부스 9', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
-    booth10:   { name:'부스 10', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
     capoeira:  { name:'카포에라 무대', cat:'공연', time:'시간 확정 전', desc:'무술과 음악이 어우러진 카포에라 공연이에요.' },
     kpop:      { name:'케이팝 댄스 무대', cat:'공연', time:'시간 확정 전', desc:'댄스 동아리의 케이팝 커버 무대예요.' },
     band:      { name:'밴드 무대', cat:'공연', time:'시간 확정 전', desc:'밴드 동아리의 라이브 공연이에요.' },
@@ -538,44 +568,116 @@ const CONFIG = {
     cooking:   { name:'커플메이킹 쿠킹 클래스', cat:'교류팅', presign:true, desc:'둘씩 짝을 지어 함께 요리하는 클래스예요. 사전 신청자만 참여해요.' },
     party:     { name:'뒷풀이', cat:'뒷풀이', time:'축제 종료 후', desc:'축제를 마무리하며 함께 모이는 시간이에요.' },
     info:      { name:'안내 데스크', cat:'편의', desc:'지도, 분실물, 문의는 이곳에서 도와드려요.' },
-    photo:     { name:'레드카펫 포토존', cat:'편의', desc:'트로피를 들고 레드카펫 위에서 사진을 남겨 보세요.' }
+    photo:     { name:'레드카펫 포토존', cat:'편의', desc:'트로피를 들고 레드카펫 위에서 사진을 남겨 보세요.' },
+    f4Office: { name:'사무실', cat:'부스', wait:true, desc:'4층 사무실에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f4Dasoni: { name:'다소니', cat:'부스', wait:true, desc:'4층 다소니에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f4Dorandoran: { name:'도란도란', cat:'부스', wait:true, desc:'4층 도란도란에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f4Neoulgaji: { name:'너울가지', cat:'부스', wait:true, desc:'4층 너울가지에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f4Daon: { name:'다온', cat:'부스', wait:true, desc:'4층 다온에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    fB1Raon: { name: '라온', cat:'부스', wait: true, desc: 'B1층 라온에서 운영되는 부스예요.', promo: '부스 소개를 준비 중이에요.' },
+    f5Bona: { name:'보나', cat:'부스', wait:true, desc:'5층 보나에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Yangji: { name:'양지', cat:'부스', wait:true, desc:'5층 양지에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Onnuri: { name:'온누리', cat:'부스', wait:true, desc:'5층 온누리에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Hanul: { name:'한울', cat:'부스', wait:true, desc:'5층 한울에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Dasom: { name:'다솜실', cat:'부스', wait:true, desc:'5층 다솜실에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Garam: { name:'가람', cat:'부스', wait:true, desc:'5층 가람에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Maru: { name:'마루', cat:'부스', wait:true, desc:'5층 마루에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
+    f5Yeoul: { name:'여울', cat:'부스', wait:true, desc:'5층 여울에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' }
   },
 
-  // 위치는 예시예요. area = "시작행 / 시작열 / 끝행 / 끝열" (3행 × 4열 격자)
+  // 지도 수정 안내:
+  // - c:[왼쪽 열, 오른쪽 열], r:[위쪽 행, 아래쪽 행]이며 끝 숫자는 포함하지 않아요.
+  // - 예: c:[5,9], r:[0,4] = 5열부터 8열, 0행부터 3행을 차지하는 공간.
+  // - cols/rows는 전체 격자 크기예요. B1·1F·4F·5F는 현재 20열×14행입니다.
+  // - type:'booth'는 클릭 가능한 부스, type:'facility'는 선으로만 표시되는 구조물입니다.
+  // - type:'amenity'는 초록색 편의시설, type:'show'는 분홍색 공연 공간입니다.
+  // - type:'blocked'는 사용할 수 없는 공간이며 X 하나로 표시됩니다.
+  // - v:true를 추가하면 이름을 세로 방향으로 표시합니다.
   floors: [
-    { id:'B1', label:'지하 1층', note:'모든 공연이 움에서 열려요.', rooms:[
-      { id:'um', name:'움', area:'1/1/3/4', items:['capoeira','kpop','band'] },
-      { id:'b1-wait', name:'공연 대기 공간', area:'1/4/3/5' },
-      { id:'b1-core', name:'계단·엘리베이터', area:'3/1/4/3' },
-      { id:'b1-wc', name:'화장실', area:'3/3/4/5' } ]},
-    { id:'1F', label:'1층', note:'메인 층이에요. 안내 데스크에서 시작하세요.', rooms:[
+    // ===== B1층 지도 =====
+    // spots: 실제 지도에 보이는 영역. rooms: 부스 클릭 시 열 상세 정보와 연결.
+    { id:'B1', label:'지하 1층', note:'라온·움과 화장실, 엘리베이터, 계단 위치를 확인하세요.', layout:'grid-map', cols:20, rows:14, spots:[
+      { type:'booth', name:'청소년공감센터 움', c:[9,20], r:[0,14], room:'um' },
+      { type:'booth', name:'라온', c:[1,9], r:[10,14], room:'raon' },
+      { type:'facility', name:'화장실', c:[0,3], r:[4,7], v:1 },
+      { type:'facility', name:'엘베', c:[4,6], r:[4,7], v:1 },
+      { type:'facility', name:'계단', c:[6,9], r:[4,7], v:1 },
+      { type:'blocked', c:[0,9], r:[0,4] } ], 
+      rooms:[
+      { id:'um', name:'청소년공감센터 움', area:'1/10/15/21', items:['capoeira','kpop','band'] },
+      { id:'raon', name:'라온', area: '11/2/15/10', items: ['fB1Raon'] } ]
+    },
+    // ===== 1층 지도 =====
+    { id:'1F', label:'1층', note:'도서관과 카페를 중심으로 화장실·엘리베이터·계단 위치를 확인하세요.', layout:'grid-map', cols:20, rows:14, spots:[
+      // 첨부한 단순화 스케치 기준: 상단 큰 도서관, 중앙 복도, 하단 카페
+      { type:'amenity', name:'도서관', c:[8,20], r:[0,6] },
+      { type:'facility', name:'화장실', c:[0,4], r:[3,6], v:1 },
+      { type:'facility', name:'엘베', c:[4,6], r:[3,6], v:1 },
+      { type:'facility', name:'계단', c:[6,8], r:[3,6], v:1 },
+      { type:'facility', name:'후문', c:[0,2], r:[7,9], v:1 },
+      { type:'facility', name:'정문', c:[18,20], r:[6,8], v:1 },
+      { type:'facility', name:'계단', c:[0,2], r:[9,14], v:1 },
+      { type:'amenity', name:'카페', c:[2,20], r:[8,14] } ], rooms:[
       { id:'desk', name:'로비', area:'1/1/2/2', items:['info'] },
       { id:'carpet', name:'로비 중앙', area:'1/2/2/4', items:['photo'] },
       { id:'hall', name:'메인 홀', area:'2/1/4/3', items:['food','party'] },
       { id:'r1-1', name:'동아리실 1-1', area:'1/4/2/5', items:['treasure'] },
       { id:'r1-2', name:'동아리실 1-2', area:'2/3/3/5', items:['booth5'] },
       { id:'r1-3', name:'동아리실 1-3', area:'3/3/4/5', items:['booth6'] } ]},
-    { id:'2F', label:'2층', note:'부스와 강연이 있는 층이에요.', rooms:[
-      { id:'r2-1', name:'동아리실 2-1', area:'1/1/2/3', items:['mission'] },
-      { id:'r2-2', name:'동아리실 2-2', area:'1/3/2/5', items:['booth7'] },
-      { id:'lect', name:'강의실', area:'2/1/4/3', items:['lecture'] },
-      { id:'r2-3', name:'동아리실 2-3', area:'2/3/3/5', items:['booth8'] },
-      { id:'c2', name:'계단·화장실', area:'3/3/4/5' } ]},
+    // ===== 3층 지도 =====
     { id:'3F', label:'3층', note:'방탈출 부스가 층 대부분을 사용해요.', rooms:[
       { id:'esc', name:'방탈출 구역', area:'1/1/3/4', items:['escape'] },
       { id:'r3-1', name:'동아리실 3-1', area:'1/4/3/5', items:['booth9'] },
       { id:'c3', name:'계단·화장실', area:'3/1/4/5' } ]},
-    { id:'4F', label:'4층', note:'교류팅 프로그램이 열리는 층이에요.', rooms:[
-      { id:'multi', name:'다목적실', area:'1/1/3/3', items:['solo'] },
-      { id:'kitchen', name:'요리실', area:'1/3/3/5', items:['cooking'] },
-      { id:'r4-1', name:'동아리실 4-1', area:'3/1/4/3', items:['booth10'] },
-      { id:'c4', name:'계단·화장실', area:'3/3/4/5' } ]}
+    // ===== 4층 지도 =====
+    { id:'4F', label:'4층', note:'입주 공간마다 부스가 들어가요.', layout:'grid-map', cols:20, rows:14, spots:[
+      // 부스 공간: 노란색 카드이며 클릭할 수 있습니다.
+      { type:'facility', name:'사무실', c:[9,20], r:[0,7], room:'office' },
+      { type:'booth', name:'다소니', c:[3,6], r:[9,14], v:1, room:'dasoni' },
+      { type:'booth', name:'도란도란', c:[6,10], r:[9,14],room:'dorandoran' },
+      { type:'booth', name:'너울가지', c:[10,17], r:[9,14], room:'neoulgaji' },
+      { type:'booth', name:'다온', c:[17,20], r:[9,14], room:'daon' },
+      { type:'facility', name:'화장실', c:[0,4], r:[5,7] },
+      { type:'facility', name:'엘리베이터', c:[5,7], r:[5,7], v:1 },
+      { type:'facility', name:'계단', c:[7,9], r:[5,7], v:1 },
+      { type:'facility', name:'계단', c:[0,3], r:[9,14] },
+
+      // 좌측 상단의 의미 없는 공간을 하나의 X 구역으로 표시
+      { type:'blocked', c:[0,9], r:[0,5] } ], rooms:[
+      { id:'office', name:'사무실', area:'1/10/8/21', items:['f4Office'] },
+      { id:'dasoni', name:'다소니', area:'10/6/15/8', items:['f4Dasoni'] },
+      { id:'dorandoran', name:'도란 도란', area:'10/8/15/11', items:['f4Dorandoran'] },
+      { id:'neoulgaji', name:'너울가지', area:'10/11/15/18', items:['f4Neoulgaji'] },
+      { id:'daon', name:'다온', area:'10/18/15/21', items:['f4Daon'] } ]}
+    ,
+    // ===== 5층 지도 =====
+    { id:'5F', label:'5층', note:'파란색으로 표시된 공간마다 부스가 들어가요.', layout:'grid-map', cols:20, rows:14, spots:[
+      { type:'booth', name:'보나', c:[0,4], r:[0,4], room:'f5-bona' },
+      { type:'booth', name:'양지', c:[9,12], r:[0,4], room:'f5-yangji' },
+      { type:'booth', name:'온누리', c:[12,16], r:[0,4], room:'f5-onnuri' },
+      { type:'booth', name:'한울', c:[16,20], r:[0,4], room:'f5-hanul' },
+      { type:'facility', name:'화장실', c:[0,3], r:[4,7], v:1 },
+      { type:'facility', name:'엘베', c:[3,6], r:[4,7], v:1 },
+      { type:'facility', name:'계단', c:[6,9], r:[4,7], v:1 },
+      { type:'facility', name:'계단', c:[0,2], r:[8,14], v:1 },
+      { type:'booth', name:'다솜실', c:[2,9], r:[8,14], room:'f5-dasom' },
+      { type:'booth', name:'가람', c:[9,12], r:[8,14], room:'f5-garam' },
+      { type:'booth', name:'마루', c:[12,15], r:[8,14], room:'f5-maru' },
+      { type:'booth', name:'여울', c:[15,20], r:[8,14], room:'f5-yeoul' } ], rooms:[
+      { id:'f5-bona', name:'보나', area:'1/1/5/5', items:['f5Bona'] },
+      { id:'f5-yangji', name:'양지', area:'1/10/5/13', items:['f5Yangji'] },
+      { id:'f5-onnuri', name:'온누리', area:'1/13/5/17', items:['f5Onnuri'] },
+      { id:'f5-hanul', name:'한울', area:'1/17/5/21', items:['f5Hanul'] },
+      { id:'f5-dasom', name:'다솜실', area:'9/5/15/10', items:['f5Dasom'] },
+      { id:'f5-garam', name:'가람', area:'9/10/15/13', items:['f5Garam'] },
+      { id:'f5-maru', name:'마루', area:'9/13/15/16', items:['f5Maru'] },
+      { id:'f5-yeoul', name:'여울', area:'9/17/15/21', items:['f5Yeoul'] } ]}
   ]
 };
 // 분류별 색: c = 진한 강조색, f = 카드 채움색
 const CATS  = { '부스':'#E9C35A', '공연':'#E58AA6', '강연':'#7FB2E8', '교류팅':'#A996E6', '뒷풀이':'#E9A878', '편의':'#7FCBA9' };
 const FILLS = { '부스':'#FAF0D2', '공연':'#F8DDE4', '강연':'#DDE9F5', '교류팅':'#E8E2F6', '뒷풀이':'#F6E1CC', '편의':'#D8EFE4' };
-const FLOOR_COLORS = { B1:'#F6E3A6', '1F':'#F4CCD4', '2F':'#C5E7D6', '3F':'#C9DAF4', '4F':'#F4D3B3' };
+const FLOOR_COLORS = { B1:'#F6E3A6', '1F':'#F4CCD4', '3F':'#C9DAF4', '4F':'#F4D3B3', '5F':'#BFC8F7' };
 const PREFIX = { '부스':'B', '공연':'S', '강연':'L', '교류팅':'M', '뒷풀이':'P', '편의':'I' };
 const CODE = {};
 (() => { const n = {}; Object.entries(CONFIG.items).forEach(([k,v]) => { n[v.cat] = (n[v.cat]||0) + 1; CODE[k] = PREFIX[v.cat] + String(n[v.cat]).padStart(2,'0'); }); })();
@@ -625,7 +727,7 @@ const roomOf = (fid, rid) => floorOf(fid).rooms.find(r => r.id === rid);
 const where = k => { const l = LOC[k]; return l ? `${floorOf(l.floor).label} ${roomOf(l.floor,l.room).name}` : '장소 미정'; };
 
 let waits = {}, mine = {}, cheers = [], admin = false;
-const state = { floor:'1F', room:null, sheet:null, flat:false };
+const state = { floor:'1F', room:null, sheet:null };
 
 /* ---------- 기본 정보 ---------- */
 function fillInfo(){
@@ -665,7 +767,33 @@ function renderFloors(){
 }
 function renderPlan(){
   const f = floorOf(state.floor);
-  $('#plan').classList.toggle('flat', state.flat);
+  // grid-map 층은 위 floors[].spots 좌표를 화면 요소로 변환합니다.
+  $('#plan').classList.add('flat');
+  $('#plan').classList.toggle('f4-grid', f.layout === 'grid-map');
+  $('#plan').classList.toggle('f5-grid', f.id === '5F');
+  $('#plan').style.aspectRatio = f.layout === 'grid-map' ? '20/14' : '';
+  if (f.layout === 'grid-map') {
+    const rooms = Object.fromEntries(f.rooms.map(r => [r.id, r]));
+    $('#plan').innerHTML = f.spots.map(s => {
+      // s.c/s.r가 실제 위치, s.type이 표시 모양, s.v가 세로 글씨 여부입니다.
+      const room = s.room ? rooms[s.room] : null;
+      const item = room && room.items && room.items[0] ? CONFIG.items[room.items[0]] : null;
+      const style = `grid-column:${s.c[0] + 1}/${s.c[1] + 1};grid-row:${s.r[0] + 1}/${s.r[1] + 1};`;
+      if (s.type === 'blocked') return `<div class="f4-blocked" style="${style}" aria-hidden="true"></div>`;
+      if (s.type === 'facility') {
+        const isElevator = s.name === '엘리베이터' || s.name === '엘베';
+        const facilityClass = isElevator ? ' f4-elevator' : '';
+        const facilityLabel = isElevator ? '🛗' : esc(s.name);
+        return `<div class="f4-card f4-facility${s.v ? ' vertical' : ''}${facilityClass}" style="${style}" aria-label="${esc(s.name)}">${s.name ? `<small>${facilityLabel}</small>` : ''}</div>`;
+      }
+      if (s.type === 'amenity' || s.type === 'show') return `<div class="f4-card f4-${s.type}${s.v ? ' vertical' : ''}" style="${style}"><small>${esc(s.name)}</small></div>`;
+      const categoryStyle = item ? cv_(item.cat) : cv_('부스');
+      const selected = state.room === s.room ? ' sel' : '';
+      return `<button class="f4-card${s.v ? ' vertical' : ''}${selected}" style="${style}${categoryStyle}" data-room="${esc(s.room)}" data-floor="${f.id}" aria-label="${esc(s.name)}${item ? `: ${esc(item.name)}` : ''}">
+        <b>${esc(s.name)}</b></button>`;
+    }).join('');
+    return;
+  }
   $('#plan').innerHTML = f.rooms.map(r => {
     const its = r.items || [];
     if (!its.length) return `<div class="room empty" style="grid-area:${r.area}"><span class="rn">${esc(r.name)}</span></div>`;
@@ -918,12 +1046,6 @@ document.addEventListener('submit', async e => {
   }
 });
 $('#q').addEventListener('input', renderSearch);
-$('#viewToggle').addEventListener('click', e => {
-  state.flat = !state.flat;
-  e.currentTarget.textContent = state.flat ? '입체로 보기' : '평면으로 보기';
-  e.currentTarget.setAttribute('aria-pressed', state.flat);
-  renderPlan();
-});
 $('#sheetClose').addEventListener('click', closeSheet);
 $('#sheetBack').addEventListener('click', closeSheet);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.sheet) closeSheet(); });

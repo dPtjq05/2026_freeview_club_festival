@@ -187,7 +187,6 @@ section h2::after{content:"";position:absolute;left:50%;bottom:-10px;width:44px;
 .room.empty .rn{color:var(--mute)}
 .badge{position:absolute;top:6px;right:6px;font-size:10.5px;font-weight:700;background:var(--rose);color:#fff;border-radius:999px;padding:1px 7px}
 .map-tools{display:flex;justify-content:space-between;align-items:center;gap:10px}
-#viewToggle{white-space:nowrap;flex:none}
 .legend{display:flex;flex-wrap:wrap;gap:6px 12px;font-size:13px;color:var(--ink)}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border-radius:2px;background:var(--c)}
@@ -431,7 +430,6 @@ footer .end{font-size:22px;font-weight:700}
     </div>
     <div class="map-tools">
       <div class="legend" id="legend"></div>
-      <button class="btn ghost small" id="viewToggle" aria-pressed="true">입체로 보기</button>
     </div>
   </section>
 
@@ -632,7 +630,7 @@ const where = k => { const l = LOC[k]; return l ? `${floorOf(l.floor).label} ${r
 
 /* 화면 전체에서 공유하는 현재 데이터와 UI 선택 상태입니다. */
 let waits = {}, mine = {}, cheers = [], admin = false;
-const state = { floor:'1F', room:null, sheet:null, flat:true };
+const state = { floor:'1F', room:null, sheet:null };
 
 /* ---------- 기본 정보 ---------- */
 /* CONFIG의 값을 HTML의 각 자리(id가 있는 요소)에 넣습니다. */
@@ -681,7 +679,7 @@ function renderFloors(){
 }
 function renderPlan(){
   const f = floorOf(state.floor);
-  $('#plan').classList.toggle('flat', state.flat);
+  $('#plan').classList.add('flat');
   $('#plan').innerHTML = f.rooms.map(r => {
     const its = r.items || [];
     const type = r.type || (its.length ? '' : 'utility');
@@ -977,13 +975,6 @@ document.addEventListener('submit', async e => {
 });
 /* 검색어가 바뀔 때마다 검색 결과를 갱신합니다. */
 $('#q').addEventListener('input', renderSearch);
-/* 입체 지도와 평면 지도를 번갈아 표시합니다. */
-$('#viewToggle').addEventListener('click', e => {
-  state.flat = !state.flat;
-  e.currentTarget.textContent = state.flat ? '입체로 보기' : '평면으로 보기';
-  e.currentTarget.setAttribute('aria-pressed', state.flat);
-  renderPlan();
-});
 $('#sheetClose').addEventListener('click', closeSheet);
 $('#sheetBack').addEventListener('click', closeSheet);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.sheet) closeSheet(); });
