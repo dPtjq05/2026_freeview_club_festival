@@ -16,7 +16,7 @@ const CONFIG = {
   // 구글폼 등 링크를 넣으면 버튼이 활성화돼요
   surveyUrl: '',
   matchingUrl: '',
-  applicationsEndpoint: 'https://script.google.com/macros/s/AKfycbx88T5j2f7Jt-F4SZxOIh3Xqy937ocj4DccC2vS_im3ND2EjWDSknFxBv5hoX-im80Bdg/exec',
+  applicationsEndpoint: 'https://script.google.com/macros/s/AKfycbxwccb2Q4To6FNHTQViY1EhZMhLIYe1IAcQIUOeW7BTUerjUXqa-X9I1VXSigQiNCq6xA/exec',
   // 운영진 모드 비밀번호 (화면 코드에 그대로 보이니 간단한 잠금 용도로만 쓰세요)
   adminPin: '1121',
   // 외부에 배포할 때: Firebase Realtime Database 주소를 넣으면 대기 등록·댓글이 모두에게 공유돼요
