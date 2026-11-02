@@ -154,6 +154,7 @@ const CONFIG = {
       { id:'f5-yeoul', name:'여울', area:'9/17/15/21', items:['f5Yeoul'] } ]}
   ]
 };
+const GOOGLE_SCRIPT_URL = CONFIG.applicationsEndpoint;
 // 분류별 색: c = 진한 강조색, f = 카드 채움색
 const CATS  = { '부스':'#E9C35A', '공연':'#E58AA6', '강연':'#7FB2E8', '교류팅':'#A996E6', '뒷풀이':'#E9A878', '편의':'#7FCBA9' };
 const FILLS = { '부스':'#FAF0D2', '공연':'#F8DDE4', '강연':'#DDE9F5', '교류팅':'#E8E2F6', '뒷풀이':'#F6E1CC', '편의':'#D8EFE4' };
@@ -365,9 +366,8 @@ function renderApplication(k){
 }
 let applicationSubmitting = false;
 async function submitApplication(application){
-  const endpoint = CONFIG.applicationsEndpoint.trim();
-  if (!endpoint) throw new Error('신청 전송 주소가 설정되지 않았어요.');
-  await fetch(endpoint, {
+  if (!GOOGLE_SCRIPT_URL.trim()) throw new Error('신청 전송 주소가 설정되지 않았어요.');
+  await fetch(GOOGLE_SCRIPT_URL, {
     method:'POST',
     mode:'no-cors',
     headers:{'Content-Type':'text/plain;charset=utf-8'},
@@ -430,11 +430,16 @@ function setupRegistrationForms(){
       return;
     }
     const button = form.querySelector('button[type="submit"]');
+    const defaultButtonText = button.textContent;
     button.disabled = true;
     button.textContent = '전송 중...';
     try {
-      const data = Object.fromEntries(new FormData(form).entries());
-      await submitApplication({ formType: form.id === 'participantForm' ? 'participant' : 'visitor', submittedAt: new Date().toISOString(), ...data });
+      const payload = {
+        ...Object.fromEntries(new FormData(form).entries()),
+        submittedAt: new Date().toISOString(),
+        formType: form.id === 'visitorForm' ? 'visitor' : 'participant'
+      };
+      await submitApplication(payload);
       form.reset();
       setFormMessage(form, '[data-form-success]', '신청이 완료됐어요. 운영팀에서 확인 후 안내해 드릴게요.', true);
     } catch (error) {
@@ -442,7 +447,7 @@ function setupRegistrationForms(){
       setFormMessage(form, '[data-form-alert]', error.message || '신청 전송에 실패했어요. 잠시 후 다시 시도해 주세요.', true);
     } finally {
       button.disabled = false;
-      button.textContent = '참관 신청하기';
+      button.textContent = defaultButtonText;
     }
   }));
 }
