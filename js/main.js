@@ -4,10 +4,10 @@
 const CONFIG = {
   name: 'Take #1',
   subtitle: '오늘 밤의 주인공은 바로 당신',
-  dateISO: '2026-11-21T10:00:00+09:00',
+  dateISO: '2026-11-21T14:00:00+09:00',
   dateText: '2026. 11. 21. 토요일',
-  timeText: '10:00–20:00',
-  place: '시립서울청소년센터 전층',
+  timeText: '14:00–18:00',
+  place: '시립서울청소년센터',
   placeName: '시립서울청소년센터',
   placeAddr: '서울 중구 을지로11길 23 · 을지로3가역 인근',
   mapUrl: 'https://map.naver.com/p/search/%EC%8B%9C%EB%A6%BD%EC%84%9C%EC%9A%B8%EC%B2%AD%EC%86%8C%EB%85%84%EC%84%BC%ED%84%B0',
@@ -25,11 +25,10 @@ const CONFIG = {
 
   // 프로그램 순서: 시간이 정해지면 time에 '10:00–12:00'처럼 적어 주세요
   timeline: [
-    { cat:'부스',  title:'부스 체험 활동', time:'', floor:'1F', sum:'전층 부스 10곳 · 1층 메인' },
-    { cat:'공연',  title:'공연 관람',     time:'', floor:'B1', sum:'지하 1층 움 · 카포에라 · 케이팝 댄스 · 밴드' },
-    { cat:'강연', title:'강의 청강',     time:'', floor:'5F', sum:'경제 학회 강연' },
-    { cat:'교류팅', title:'교류팅',        time:'', floor:'4F', sum:'사전 신청자 · 교류 게임 · 쿠킹 클래스' },
-    { cat:'뒷풀이', title:'뒷풀이',        time:'', floor:'1F', sum:'1층 메인 홀' }
+    { cat:'강연', title:'학술분과 강연', time:'', floor:'5F', sum:'학술분과에서 준비한 강연' },
+    { cat:'공연', title:'예술분과 공연', time:'', floor:'B1', sum:'예술분과의 무대 공연' },
+    { cat:'부스', title:'봉사분과 부스', time:'', floor:'1F', sum:'봉사분과에서 운영하는 체험 부스' },
+    { cat:'교류팅', title:'교류팅', time:'', floor:'4F', sum:'동아리 친구들과 함께하는 교류의 시간' }
   ],
   items: {
     mission:   { name:'미션임파서블', cat:'부스', wait:true, desc:'제한 시간 안에 센터 곳곳의 미션을 해결하는 첩보 작전 부스예요.', promo:'요원 등록 후 미션 카드를 받아 가세요.' },

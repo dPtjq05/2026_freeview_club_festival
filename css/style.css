@@ -78,6 +78,7 @@ main{position:relative;z-index:1;max-width:460px;margin:0 auto}
 .laurel-wrap p{position:relative;margin:8px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.22em;line-height:1.7;color:var(--gold);text-align:center}
 .hero .rule{margin:22px auto 16px}
 .hero-ko{margin:0;font-family:'Black Han Sans',sans-serif;font-size:26px;line-height:1.2}
+.take-meaning{margin:10px 0 0;font-size:14px;line-height:1.6;color:var(--mute)}
 .hero-date{margin:10px 0 0;font-size:14.5px;color:var(--mute)}
 .stage{position:relative;flex:1;width:calc(100% + 48px);min-height:280px;margin-top:22px}
 .carpet{position:absolute;left:50%;bottom:0;width:92%;height:100%;transform:translateX(-50%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);background:repeating-linear-gradient(90deg,rgba(0,0,0,.06) 0 2px,transparent 2px 5px),linear-gradient(180deg,var(--carpet-d),var(--carpet) 55%,#D0304A)}
