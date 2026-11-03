@@ -98,10 +98,20 @@
         <p class="card-lede">소속, 이름, 연락처를 간단히 알려 주세요.</p>
         <form class="registration-form" id="visitorForm" novalidate>
           <fieldset class="form-group">
-            <legend>참관 정보</legend>
-            <label class="form-field">소속 <span class="required-mark">*</span><input name="affiliation" required autocomplete="organization" maxlength="60" placeholder="학교·동아리·소속 없음 등"><span class="field-error" data-error-for="affiliation"></span></label>
+            <legend>참가 정보</legend>
+            <label class="form-field">소속 <span class="required-mark">*</span><select name="affiliation" required><option value="">선택해 주세요</option><option value="동아리">동아리</option><option value="소속 없음">소속 없음</option></select><span class="field-error" data-error-for="affiliation"></span></label>
+            <div class="conditional-field" id="no-affiliation-fields" hidden>
+              <label class="form-field">성별 <span class="required-mark">*</span><select name="gender"><option value="">선택해 주세요</option><option value="남성">남성</option><option value="여성">여성</option><option value="기타">기타</option><option value="응답하지 않음">응답하지 않음</option></select><span class="field-error" data-error-for="gender"></span></label>
+              <label class="form-field">생년월일 <span class="required-mark">*</span><input name="birthDate" type="date"><span class="field-error" data-error-for="birthDate"></span></label>
+            </div>
             <label class="form-field">이름 <span class="required-mark">*</span><input name="name" required autocomplete="name" maxlength="30"><span class="field-error" data-error-for="name"></span></label>
             <label class="form-field">전화번호 <span class="required-mark">*</span><input name="phone" type="tel" required autocomplete="tel" placeholder="010-0000-0000" maxlength="20"><span class="field-error" data-error-for="phone"></span></label>
+          </fieldset>
+          <fieldset class="form-group">
+            <legend>필수 동의</legend>
+            <label class="check-option"><input type="checkbox" name="portraitConsent" required><span><b>[필수] 사진·영상 촬영 및 초상권 이용 동의</b><small>행사 운영 기록, 활동 결과보고 및 기관 홍보를 위해 얼굴·음성·참여 모습이 촬영될 수 있습니다. 기관 공식 홈페이지 및 공식 SNS에 사진·영상·릴스 등으로 게시될 수 있으며, 홍보 목적에 필요한 범위에서 편집될 수 있습니다. 촬영일로부터 [실제 보유기간]까지 이용되며, 온라인 게시물은 제3자에 의해 공유될 수 있습니다.</small></span></label>
+            <label class="check-option"><input type="checkbox" name="privacyConsent" required><span><b>[필수] 개인정보 수집 및 이용 동의</b><small>프로그램 신청 접수, 참여자 확인, 참가자 관리 및 운영 안내를 위해 성명·연락처·연령 등 신청서 기재 정보를 수집합니다. 프로그램 종료일로부터 5년까지 보유 후 파기하며, 동의하지 않으면 신청 및 참여가 제한될 수 있습니다.</small></span></label>
+            <span class="field-error" data-error-for="consents"></span>
           </fieldset>
           <p class="form-alert" data-form-alert></p>
           <p class="form-success" data-form-success></p>

@@ -304,7 +304,11 @@ function renderApplication(k){
         </select>
       </label>
       <label>전달 사항 <textarea name="note" maxlength="200" placeholder="알레르기, 문의 사항 등이 있으면 적어 주세요 (선택)"></textarea></label>
-      <label class="apply-consent"><input name="consent" type="checkbox" required><span>개인정보 수집·이용 안내를 확인했으며 신청에 동의합니다.</span></label>
+      <fieldset class="apply-consents">
+        <legend>필수 동의</legend>
+        <label class="apply-consent"><input name="portraitConsent" type="checkbox" required><span><b>사진·영상 촬영 및 초상권 이용 동의</b><small>행사 운영 기록, 활동 결과보고 및 기관 홍보를 위해 얼굴·음성·참여 모습이 촬영될 수 있습니다. 기관 공식 홈페이지 및 공식 SNS에 사진 게시물, 영상, 릴스 등으로 게시될 수 있으며, 홍보 목적에 필요한 범위에서 편집될 수 있습니다. 촬영일로부터 [실제 보유기간]까지 이용되며, 온라인 게시물은 제3자에 의해 공유될 수 있습니다.</small></span></label>
+        <label class="apply-consent"><input name="privacyConsent" type="checkbox" required><span><b>개인정보 수집 및 이용 동의</b><small>프로그램 신청 접수, 참여자 확인, 참가자 관리 및 운영 안내를 위해 성명·연락처·연령 등 신청서 기재 정보를 수집합니다. 프로그램 종료일로부터 5년까지 보유 후 파기하며, 동의하지 않으면 신청 및 참여가 제한될 수 있습니다.</small></span></label>
+      </fieldset>
       <button class="btn gold" type="submit">신청서 제출하기</button>
     </form>`;
 }
@@ -331,7 +335,7 @@ function setFieldError(form, name, message){
   const error = form.querySelector(`[data-error-for="${name}"]`);
   if (error) error.textContent = message || '';
   const field = form.elements[name];
-  if (field && typeof field.setAttribute === 'function' && field.type !== 'radio' && field.type !== 'checkbox') field.setAttribute('aria-invalid', message ? 'true' : 'false');
+  if (field && typeof field.setAttribute === 'function' && field.type !== 'radio') field.setAttribute('aria-invalid', message ? 'true' : 'false');
 }
 function validateRegistrationForm(form){
   let valid = true;
@@ -364,6 +368,25 @@ function readPhoto(file){
   });
 }
 function setupRegistrationForms(){
+  const visitorForm = document.querySelector('#visitorForm');
+  if (visitorForm) {
+    const affiliation = visitorForm.elements.affiliation;
+    const extraFields = visitorForm.querySelector('#no-affiliation-fields');
+    const conditionalFields = extraFields ? extraFields.querySelectorAll('select, input') : [];
+    const updateConditionalFields = () => {
+      const noAffiliation = affiliation.value === '소속 없음';
+      if (extraFields) extraFields.hidden = !noAffiliation;
+      conditionalFields.forEach(field => {
+        field.required = noAffiliation;
+        if (!noAffiliation) {
+          field.value = '';
+          field.removeAttribute('aria-invalid');
+        }
+      });
+    };
+    affiliation.addEventListener('change', updateConditionalFields);
+    updateConditionalFields();
+  }
   document.querySelectorAll('.registration-form').forEach(form => form.addEventListener('submit', async event => {
     event.preventDefault();
     setFormMessage(form, '[data-form-alert]', '', false);
@@ -497,11 +520,14 @@ document.addEventListener('submit', async e => {
       program: String(data.get('program') || ''),
       programName: CONFIG.items[String(data.get('program'))]?.name || String(data.get('program')),
       note: String(data.get('note') || '').trim(),
+      portraitConsent: data.get('portraitConsent') === 'on',
+      privacyConsent: data.get('privacyConsent') === 'on',
       t: Date.now()
     };
-    if (!application.name || !application.phone || !application.affiliation || !data.get('consent')) {
+    if (!application.name || !application.phone || !application.affiliation || !data.get('portraitConsent') || !data.get('privacyConsent')) {
       applicationSubmitting = false;
       if (submitButton) { submitButton.disabled = false; submitButton.textContent = '신청서 제출하기'; }
+      toast('필수 동의 항목을 모두 확인해 주세요');
       return;
     }
     if (!/^[0-9０-９+()\-\s]{8,20}$/.test(application.phone)) {
