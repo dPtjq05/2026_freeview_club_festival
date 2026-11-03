@@ -218,14 +218,13 @@ function renderFloors(){
 }
 function renderPlan(){
   const f = floorOf(state.floor);
+  $('#plan').classList.toggle('floor-ready', state.floor === '5F');
   const booths = f.rooms.flatMap(r => (r.items || [])
     .filter(k => CONFIG.items[k] && CONFIG.items[k].cat === '부스')
     .map(k => ({ room: r, key: k, item: CONFIG.items[k] })));
   $('#plan').innerHTML = booths.length ? booths.map(({ room, key, item }) => {
-    const waiting = item.wait ? (waits[key] || []).length : 0;
-    return `<button class="booth-item ${state.room === room.id ? 'sel' : ''}" style="${cv_(item.cat)}" data-room="${esc(room.id)}" data-floor="${f.id}" aria-label="${esc(item.name)}${waiting ? `, 대기 ${waiting}팀` : ''}">
+    return `<button class="booth-item ${state.room === room.id ? 'sel' : ''}" style="${cv_(item.cat)}" data-room="${esc(room.id)}" data-floor="${f.id}" aria-label="${esc(item.name)}">
       <span class="booth-item-main"><strong>${esc(item.name)}</strong><small>${esc(room.name)}</small></span>
-      ${waiting ? `<span class="badge">대기 ${waiting}</span>` : ''}
       <span class="booth-item-arrow" aria-hidden="true">›</span>
     </button>`;
   }).join('') : '<p class="booth-empty">이 층에는 등록된 부스가 없어요.</p>';
@@ -280,7 +279,6 @@ function renderSheet(){
       ${v.time ? `<p class="meta">${esc(v.time)}</p>` : ''}
       <p class="desc">${esc(v.desc||'')}</p>
       ${v.promo ? `<div class="promo"><strong>홍보</strong><p>${esc(v.promo)}</p></div>` : ''}
-      ${v.wait ? waitBlock(k) : ''}
     </article>`;
   }).join('');
 }
@@ -549,14 +547,6 @@ $('#q').addEventListener('input', renderSearch);
 $('#sheetClose').addEventListener('click', closeSheet);
 $('#sheetBack').addEventListener('click', closeSheet);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && state.sheet) closeSheet(); });
-$('#adminBtn').addEventListener('click', () => {
-  if (admin) { admin = false; $('#adminBtn').textContent = '운영진 모드'; renderSheet(); renderCheers(); toast('운영진 모드를 껐어요'); return; }
-  const pin = prompt('운영진 비밀번호를 입력해 주세요');
-  if (pin === null) return;
-  if (pin === CONFIG.adminPin) { admin = true; $('#adminBtn').textContent = '운영진 모드 끄기'; renderSheet(); renderCheers(); toast('운영진 모드: 부스를 누르면 명단이 보여요'); }
-  else toast('비밀번호가 맞지 않아요');
-});
-
 /* ---------- 음악 ----------
    파일 안에 넣은 음원은 Web Audio로 재생해요.
    (미리보기·메신저 인앱 브라우저처럼 <audio>가 막히는 곳에서도 소리가 나도록)
@@ -693,11 +683,10 @@ fitTicket(); if (document.fonts) document.fonts.ready.then(fitTicket);
 
 /* ---------- 시작 ---------- */
 (async function init(){
-  fillInfo(); renderProgram(); renderFloors(); renderPlan(); renderBoard(); renderCheers(); setupRegistrationForms();
+  fillInfo(); renderProgram(); renderFloors(); renderPlan(); renderCheers(); setupRegistrationForms();
   sizeSky(); if (!RM) requestAnimationFrame(drawSky);
   startAmbient();
   autoStart();
   mine = (await store.get(MK, false)) || {};
-  await Promise.all([loadWaits(), loadCheers()]);
-  setInterval(() => { if (!document.hidden) loadWaits(); }, 15000);
+  await loadCheers();
 })();
