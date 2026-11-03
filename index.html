@@ -142,17 +142,14 @@
   </section>
 
   <section id="map" style="--u:#9DBDE8" aria-labelledby="h-map">
-    <div class="sec-head"><svg class="sec-ico"><use href="#i-floors"/></svg><p class="cap">Venue Map</p><h2 id="h-map">센터 지도</h2><p class="lede">층을 고르고 방을 누르면 부스 소개와 대기 현황이 열려요.</p></div>
+    <div class="sec-head"><svg class="sec-ico"><use href="#i-floors"/></svg><p class="cap">Venue Booths</p><h2 id="h-map">층별 부스 안내</h2><p class="lede">층을 고르면 해당 층에 있는 부스만 확인할 수 있어요.</p></div>
     <div class="search">
-      <input id="q" type="search" placeholder="부스·공연·장소 검색" aria-label="부스·공연·장소 검색" autocomplete="off">
+      <input id="q" type="search" placeholder="부스 검색" aria-label="부스 검색" autocomplete="off">
       <ul class="results" id="results"></ul>
     </div>
     <div class="floors" id="floors" role="group" aria-label="층 선택"></div>
     <p class="floor-note" id="floorNote"></p>
-    <div class="plan-stage"><div class="plan" id="plan"></div></div>
-    <div class="map-tools">
-      <div class="legend" id="legend"></div>
-    </div>
+    <div class="booth-list" id="plan" aria-live="polite"></div>
   </section>
 
   <section id="waiting" style="--u:#E9B48C" aria-labelledby="h-wait">

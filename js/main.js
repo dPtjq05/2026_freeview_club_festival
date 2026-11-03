@@ -32,7 +32,7 @@ const CONFIG = {
   ],
   items: {
     mission:   { name:'미션임파서블', cat:'부스', wait:true, desc:'제한 시간 안에 센터 곳곳의 미션을 해결하는 첩보 작전 부스예요.', promo:'요원 등록 후 미션 카드를 받아 가세요.' },
-    escape:    { name:'방탈출', cat:'부스', wait:true, desc:'3층 전체를 쓰는 방탈출 부스예요. 팀 단위로 입장해요.', promo:'2~4명이 한 팀일 때 가장 재밌어요.' },
+    escape:    { name:'방탈출', cat:'부스', wait:true, desc:'청운위에서 주최하는 방탈출 프로그램이에요. 5층 전체를 사용하며 팀 단위로 입장해요.', promo:'2~4명이 한 팀일 때 가장 재밌어요.' },
     food:      { name:'음식 부스', cat:'부스', wait:true, desc:'축제 메뉴를 준비하고 있어요.', promo:'' },
     treasure:  { name:'보물찾기', cat:'부스', wait:false, desc:'센터 전층에 숨겨진 보물을 찾는 활동이에요. 이곳에서 출발해요.', promo:'' },
     booth5:    { name:'부스 5', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
@@ -55,14 +55,6 @@ const CONFIG = {
     f4Neoulgaji: { name:'너울가지', cat:'부스', wait:true, desc:'4층 너울가지에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
     f4Daon: { name:'다온', cat:'부스', wait:true, desc:'4층 다온에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
     fB1Raon: { name: '라온', cat:'부스', wait: true, desc: 'B1층 라온에서 운영되는 부스예요.', promo: '부스 소개를 준비 중이에요.' },
-    f5Bona: { name:'보나', cat:'부스', wait:true, desc:'5층 보나에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Yangji: { name:'양지', cat:'부스', wait:true, desc:'5층 양지에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Onnuri: { name:'온누리', cat:'부스', wait:true, desc:'5층 온누리에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Hanul: { name:'한울', cat:'부스', wait:true, desc:'5층 한울에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Dasom: { name:'다솜실', cat:'부스', wait:true, desc:'5층 다솜실에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Garam: { name:'가람', cat:'부스', wait:true, desc:'5층 가람에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Maru: { name:'마루', cat:'부스', wait:true, desc:'5층 마루에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f5Yeoul: { name:'여울', cat:'부스', wait:true, desc:'5층 여울에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' }
   },
 
   // 지도 수정 안내:
@@ -76,7 +68,7 @@ const CONFIG = {
   floors: [
     // ===== B1층 지도 =====
     // spots: 실제 지도에 보이는 영역. rooms: 부스 클릭 시 열 상세 정보와 연결.
-    { id:'B1', label:'지하 1층', note:'라온·움과 화장실, 엘리베이터, 계단 위치를 확인하세요.', layout:'grid-map', cols:20, rows:14, spots:[
+    { id:'B1', label:'지하 1층', note:'라온·움에서 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
       { type:'booth', name:'청소년공감센터 움', c:[9,20], r:[0,14], room:'um' },
       { type:'booth', name:'라온', c:[1,9], r:[10,14], room:'raon' },
       { type:'facility', name:'화장실', c:[0,3], r:[4,7], v:1 },
@@ -88,7 +80,7 @@ const CONFIG = {
       { id:'raon', name:'라온', area: '11/2/15/10', items: ['fB1Raon'] } ]
     },
     // ===== 1층 지도 =====
-    { id:'1F', label:'1층', note:'도서관과 카페를 중심으로 화장실·엘리베이터·계단 위치를 확인하세요.', layout:'grid-map', cols:20, rows:14, spots:[
+    { id:'1F', label:'1층', note:'도서관과 카페를 중심으로 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
       // 첨부한 단순화 스케치 기준: 상단 큰 도서관, 중앙 복도, 하단 카페
       { type:'amenity', name:'도서관', c:[8,20], r:[0,6] },
       { type:'facility', name:'화장실', c:[0,4], r:[3,6], v:1 },
@@ -105,10 +97,9 @@ const CONFIG = {
       { id:'r1-2', name:'동아리실 1-2', area:'2/3/3/5', items:['booth5'] },
       { id:'r1-3', name:'동아리실 1-3', area:'3/3/4/5', items:['booth6'] } ]},
     // ===== 3층 지도 =====
-    { id:'3F', label:'3층', note:'방탈출 부스가 층 대부분을 사용해요.', rooms:[
-      { id:'esc', name:'방탈출 구역', area:'1/1/3/4', items:['escape'] },
+    { id:'3F', label:'3층', note:'동아리실 3-1에 부스가 있어요.', rooms:[
       { id:'r3-1', name:'동아리실 3-1', area:'1/4/3/5', items:['booth9'] },
-      { id:'c3', name:'계단·화장실', area:'3/1/4/5' } ]},
+      { id:'c3', name:'계단·화장실', area:'3/1/4/5' }]},
     // ===== 4층 지도 =====
     { id:'4F', label:'4층', note:'입주 공간마다 부스가 들어가요.', layout:'grid-map', cols:20, rows:14, spots:[
       // 부스 공간: 노란색 카드이며 클릭할 수 있습니다.
@@ -131,27 +122,8 @@ const CONFIG = {
       { id:'daon', name:'다온', area:'10/18/15/21', items:['f4Daon'] } ]}
     ,
     // ===== 5층 지도 =====
-    { id:'5F', label:'5층', note:'파란색으로 표시된 공간마다 부스가 들어가요.', layout:'grid-map', cols:20, rows:14, spots:[
-      { type:'booth', name:'보나', c:[0,4], r:[0,4], room:'f5-bona' },
-      { type:'booth', name:'양지', c:[9,12], r:[0,4], room:'f5-yangji' },
-      { type:'booth', name:'온누리', c:[12,16], r:[0,4], room:'f5-onnuri' },
-      { type:'booth', name:'한울', c:[16,20], r:[0,4], room:'f5-hanul' },
-      { type:'facility', name:'화장실', c:[0,3], r:[4,7], v:1 },
-      { type:'facility', name:'엘베', c:[3,6], r:[4,7], v:1 },
-      { type:'facility', name:'계단', c:[6,9], r:[4,7], v:1 },
-      { type:'facility', name:'계단', c:[0,2], r:[8,14], v:1 },
-      { type:'booth', name:'다솜실', c:[2,9], r:[8,14], room:'f5-dasom' },
-      { type:'booth', name:'가람', c:[9,12], r:[8,14], room:'f5-garam' },
-      { type:'booth', name:'마루', c:[12,15], r:[8,14], room:'f5-maru' },
-      { type:'booth', name:'여울', c:[15,20], r:[8,14], room:'f5-yeoul' } ], rooms:[
-      { id:'f5-bona', name:'보나', area:'1/1/5/5', items:['f5Bona'] },
-      { id:'f5-yangji', name:'양지', area:'1/10/5/13', items:['f5Yangji'] },
-      { id:'f5-onnuri', name:'온누리', area:'1/13/5/17', items:['f5Onnuri'] },
-      { id:'f5-hanul', name:'한울', area:'1/17/5/21', items:['f5Hanul'] },
-      { id:'f5-dasom', name:'다솜실', area:'9/5/15/10', items:['f5Dasom'] },
-      { id:'f5-garam', name:'가람', area:'9/10/15/13', items:['f5Garam'] },
-      { id:'f5-maru', name:'마루', area:'9/13/15/16', items:['f5Maru'] },
-      { id:'f5-yeoul', name:'여울', area:'9/17/15/21', items:['f5Yeoul'] } ]}
+    { id:'5F', label:'5층', note:'청운위 주최 방탈출 프로그램이 5층 가람·마루·온누리·한울·미리내에서 진행돼요.', rooms:[
+      { id:'escape-5f', name:'가람·마루·온누리·한울·미리내', items:['escape'] } ]}
   ]
 };
 const GOOGLE_SCRIPT_URL = CONFIG.applicationsEndpoint;
@@ -221,7 +193,6 @@ function fillInfo(){
   const kst = d => new Date(d.getTime() + 9*3600e3).toISOString().slice(0,10);
   const diff = Math.round((Date.parse(kst(new Date(CONFIG.dateISO))) - Date.parse(kst(new Date()))) / 864e5);
   $('#dday').textContent = diff > 0 ? `D-${diff}` : diff === 0 ? 'D-DAY' : '상영 종료';
-  $('#legend').innerHTML = Object.keys(CATS).map(k => `<span><i style="${cv_(k)}"></i>${k}</span>`).join('');
 }
 function setLink(sel, url, label){
   const a = $(sel);
@@ -237,7 +208,7 @@ function renderProgram(){
       <span class="tl-body"><span class="tl-top"><b>${esc(t.title)}</b><span class="tl-time${t.time?'':' tbd'}">${esc(t.time || '시간 추후 공지')}</span></span>
       <span class="tl-sum">${esc(t.sum)}</span></span>
     </button></li>`).join('')}</ol>
-    <a class="tl-more" href="#map">층별 안내도에서 자세히 보기 ›</a>`;
+    <a class="tl-more" href="#map">층별 부스 안내에서 자세히 보기 ›</a>`;
 }
 
 /* ---------- 지도 ---------- */
@@ -247,42 +218,17 @@ function renderFloors(){
 }
 function renderPlan(){
   const f = floorOf(state.floor);
-  // grid-map 층은 위 floors[].spots 좌표를 화면 요소로 변환합니다.
-  $('#plan').classList.add('flat');
-  $('#plan').classList.toggle('f4-grid', f.layout === 'grid-map');
-  $('#plan').classList.toggle('f5-grid', f.id === '5F');
-  $('#plan').style.aspectRatio = f.layout === 'grid-map' ? '20/14' : '';
-  if (f.layout === 'grid-map') {
-    const rooms = Object.fromEntries(f.rooms.map(r => [r.id, r]));
-    $('#plan').innerHTML = f.spots.map(s => {
-      // s.c/s.r가 실제 위치, s.type이 표시 모양, s.v가 세로 글씨 여부입니다.
-      const room = s.room ? rooms[s.room] : null;
-      const item = room && room.items && room.items[0] ? CONFIG.items[room.items[0]] : null;
-      const style = `grid-column:${s.c[0] + 1}/${s.c[1] + 1};grid-row:${s.r[0] + 1}/${s.r[1] + 1};`;
-      if (s.type === 'blocked') return `<div class="f4-blocked" style="${style}" aria-hidden="true"></div>`;
-      if (s.type === 'facility') {
-        const isElevator = s.name === '엘리베이터' || s.name === '엘베';
-        const facilityClass = isElevator ? ' f4-elevator' : '';
-        const facilityLabel = isElevator ? '🛗' : esc(s.name);
-        return `<div class="f4-card f4-facility${s.v ? ' vertical' : ''}${facilityClass}" style="${style}" aria-label="${esc(s.name)}">${s.name ? `<small>${facilityLabel}</small>` : ''}</div>`;
-      }
-      if (s.type === 'amenity' || s.type === 'show') return `<div class="f4-card f4-${s.type}${s.v ? ' vertical' : ''}" style="${style}"><small>${esc(s.name)}</small></div>`;
-      const categoryStyle = item ? cv_(item.cat) : cv_('부스');
-      const selected = state.room === s.room ? ' sel' : '';
-      return `<button class="f4-card${s.v ? ' vertical' : ''}${selected}" style="${style}${categoryStyle}" data-room="${esc(s.room)}" data-floor="${f.id}" aria-label="${esc(s.name)}${item ? `: ${esc(item.name)}` : ''}">
-        <b>${esc(s.name)}</b></button>`;
-    }).join('');
-    return;
-  }
-  $('#plan').innerHTML = f.rooms.map(r => {
-    const its = r.items || [];
-    if (!its.length) return `<div class="room empty" style="grid-area:${r.area}"><span class="rn">${esc(r.name)}</span></div>`;
-    const c = cv_(CONFIG.items[its[0]].cat);
-    const cnt = its.reduce((s,k) => s + (CONFIG.items[k].wait ? (waits[k]||[]).length : 0), 0);
-    return `<button class="room ${state.room===r.id?'sel':''}" style="grid-area:${r.area};${c}" data-room="${r.id}" data-floor="${f.id}" aria-label="${esc(r.name)}: ${esc(its.map(k=>CONFIG.items[k].name).join(', '))}${cnt?`, 대기 ${cnt}팀`:''}">
-      ${cnt ? `<span class="badge">대기 ${cnt}</span>` : ''}
-      <span class="rn">${esc(r.name)}</span><span class="ri">${esc(its.map(k=>CONFIG.items[k].name).join(', '))}</span></button>`;
-  }).join('');
+  const booths = f.rooms.flatMap(r => (r.items || [])
+    .filter(k => CONFIG.items[k] && CONFIG.items[k].cat === '부스')
+    .map(k => ({ room: r, key: k, item: CONFIG.items[k] })));
+  $('#plan').innerHTML = booths.length ? booths.map(({ room, key, item }) => {
+    const waiting = item.wait ? (waits[key] || []).length : 0;
+    return `<button class="booth-item ${state.room === room.id ? 'sel' : ''}" style="${cv_(item.cat)}" data-room="${esc(room.id)}" data-floor="${f.id}" aria-label="${esc(item.name)}${waiting ? `, 대기 ${waiting}팀` : ''}">
+      <span class="booth-item-main"><strong>${esc(item.name)}</strong><small>${esc(room.name)}</small></span>
+      ${waiting ? `<span class="badge">대기 ${waiting}</span>` : ''}
+      <span class="booth-item-arrow" aria-hidden="true">›</span>
+    </button>`;
+  }).join('') : '<p class="booth-empty">이 층에는 등록된 부스가 없어요.</p>';
 }
 function setFloor(id){ state.floor = id; renderFloors(); renderPlan(); }
 
@@ -290,7 +236,7 @@ function renderSearch(){
   const q = $('#q').value.trim();
   if (!q) { $('#results').innerHTML = ''; return; }
   const hits = Object.entries(CONFIG.items)
-    .filter(([k,v]) => (v.name + ' ' + (v.desc||'') + ' ' + where(k)).includes(q))
+    .filter(([k,v]) => v.cat === '부스' && (v.name + ' ' + (v.desc||'') + ' ' + where(k)).includes(q))
     .slice(0, 8);
   $('#results').innerHTML = hits.length
     ? hits.map(([k,v]) => `<li><button data-item="${k}"><span>${esc(v.name)}</span><span class="where">${esc(where(k))}</span></button></li>`).join('')
