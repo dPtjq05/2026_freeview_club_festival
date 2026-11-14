@@ -28,11 +28,12 @@ const CONFIG = {
     { cat:'강연', title:'학술분과 강연', time:'', floor:'5F', sum:'학술분과에서 준비한 강연' },
     { cat:'공연', title:'예술분과 공연', time:'', floor:'B1', sum:'예술분과의 무대 공연' },
     { cat:'부스', title:'봉사분과 부스', time:'', floor:'1F', sum:'봉사분과에서 운영하는 체험 부스' },
-    { cat:'교류팅', title:'교류팅', time:'', floor:'4F', sum:'동아리 친구들과 함께하는 교류의 시간' }
+    { cat:'교류팅', title:'교류팅', time:'', floor:'4F', sum:'동아리 친구들과 함께하는 교류의 시간' },
+    { cat:'부스', title:'청운위 부스', time:'', floor:'5F', sum:'청운위 자체기획 프로그램' }
   ],
   items: {
     mission:   { name:'미션임파서블', cat:'부스', wait:true, desc:'제한 시간 안에 센터 곳곳의 미션을 해결하는 첩보 작전 부스예요.', promo:'요원 등록 후 미션 카드를 받아 가세요.' },
-    escape:    { name:'방탈출', cat:'부스', wait:true, desc:'청운위에서 주최하는 방탈출 프로그램이에요. 5층 전체를 사용하며 팀 단위로 입장해요.', promo:'2~4명이 한 팀일 때 가장 재밌어요.' },
+    escape:    { name:'방탈출 : 사라진 차곡을 쫓아서', cat:'부스', wait:true, desc:'청운위에서 자체기획한 방탈출 프로그램이에요. 5층 전체를 사용하며 팀 단위로 입장해요.', promo:'6~8명이 한 팀일 때 가장 재밌어요. 6명 이상 모였을 때만 출발가능합니다.' },
     food:      { name:'음식 부스', cat:'부스', wait:true, desc:'축제 메뉴를 준비하고 있어요.', promo:'' },
     treasure:  { name:'보물찾기', cat:'부스', wait:false, desc:'센터 전층에 숨겨진 보물을 찾는 활동이에요. 이곳에서 출발해요.', promo:'' },
     booth5:    { name:'부스 5', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
