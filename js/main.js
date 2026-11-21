@@ -28,19 +28,21 @@ const CONFIG = {
     { cat:'강연', title:'학술분과 강연', time:'', floor:'5F', sum:'학술분과에서 준비한 강연' },
     { cat:'공연', title:'예술분과 공연', time:'', floor:'B1', sum:'예술분과의 무대 공연' },
     { cat:'부스', title:'봉사분과 부스', time:'', floor:'1F', sum:'봉사분과에서 운영하는 체험 부스' },
-    { cat:'교류팅', title:'교류팅', time:'', floor:'4F', sum:'동아리 친구들과 함께하는 교류의 시간' },
+    { cat:'교류팅', title:'교류팅', time:'', floor:'8F', sum:'동아리 친구들과 함께하는 교류의 시간' },
     { cat:'부스', title:'청운위 부스', time:'', floor:'5F', sum:'청운위 자체기획 프로그램' }
   ],
   items: {
-    mission:   { name:'미션임파서블', cat:'부스', wait:true, desc:'제한 시간 안에 센터 곳곳의 미션을 해결하는 첩보 작전 부스예요.', promo:'요원 등록 후 미션 카드를 받아 가세요.' },
+    ggumsaem:  { name:'꿈샘', cat:'부스', wait:false, desc:'무인 부스로 꿈샘을 소개하는 포스터와 홍보물을 전시하고 안내해요.', promo:'꿈샘 소개 포스터 · 홍보물 전시 부스' },
+    angels:    { name:'천사들의 합창', cat:'부스', wait:false, desc:'1층 노래방 부스에서 운영하는 무인 부스예요.', promo:'노래방 시설을 활용한 합창 부스' },
+    aureum:    { name:'아름터', cat:'부스', wait:false, desc:'무인 부스에서 여러 학과 연계 체험을 운영해요.', promo:'수리 카드 게임 · 힌트 카드 노트북 암호풀기 · 색 손목지 제작 · 정체성 완성 카드 구매 · 모루꽃과 편지 작성' },
+    painting:  { name:'파인트리클럽', cat:'부스', wait:false, desc:'무인 부스에서 영어 밸런스 게임과 참여형 포스트잇 활동을 운영해요.', promo:'영어 밸런스 게임 · 영어 질문 카드 · 자신의 생각 포스트잇 작성' },
+    rotary:    { name:'신한로타랙트클럽', cat:'부스', wait:false, desc:'무인 부스로 로타랙트 동아리를 소개하는 포스터와 홍보물을 전시해요.', promo:'로타랙트 소개 포스터 · 홍보물 전시 부스' },
+    preview:   { name:'프리뷰', cat:'부스', wait:true, desc:'직접 운영하는 부스예요. 프로필 촬영 카드와 포토 부스, 우드락 활동을 연결해 운영해요.', promo:'학교 로고 조합 포토 부스 · 인스타 포스팅용 우드락 제작 이벤트' },
+    rcy:       { name:'RCY', cat:'부스', wait:true, desc:'직접 운영하는 부스예요. 영화관 콘셉트의 긴급 상황 대피 체험과 퀴즈 활동을 진행해요.', promo:'영화관 긴급상황 대피 체험 · 관련 상식·교양 퀴즈 활동' },
+    doremi:    { name:'도레미코프로젝트', cat:'부스', wait:true, desc:'직접 운영하는 부스예요. 재활용 자재로 화분을 만들고 도심 농업을 체험해요.', promo:'재활용 자재 화분 제작 · 화분과 도시 농업 체험 · 재활용 제품 인식 개선 활동' },
+    foodtf:    { name:'먹거리TF', cat:'부스', wait:true, desc:'날씨와 현장 상황에 맞춰 방문자에게 나눔할 수 있는 먹거리 부스를 운영해요.', promo:'먹거리 부스 방문자 대상 팜플렛 제공 및 나눔 활동' },
     escape:    { name:'방탈출 : 사라진 차곡을 쫓아서', cat:'부스', wait:true, desc:'청운위에서 자체기획한 방탈출 프로그램이에요. 5층 전체를 사용하며 팀 단위로 입장해요.', promo:'6~8명이 한 팀일 때 가장 재밌어요. 6명 이상 모였을 때만 출발가능합니다.' },
-    food:      { name:'음식 부스', cat:'부스', wait:true, desc:'축제 메뉴를 준비하고 있어요.', promo:'' },
-    treasure:  { name:'보물찾기', cat:'부스', wait:false, desc:'센터 전층에 숨겨진 보물을 찾는 활동이에요. 이곳에서 출발해요.', promo:'' },
-    booth5:    { name:'부스 5', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
-    booth6:    { name:'부스 6', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
-    booth7:    { name:'부스 7', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
-    booth8:    { name:'부스 8', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
-    booth9:    { name:'부스 9', cat:'부스', wait:true, desc:'참여 동아리와 내용을 정하는 중이에요.', promo:'' },
+    artshow:   { name:'예술분과 공연', cat:'부스', wait:false, desc:'청소년공감센터 움에서 카포에라, 케이팝 댄스, 밴드 공연을 한 칸의 부스형 안내로 확인할 수 있어요.', promo:'카포에라 · 케이팝 댄스 · 밴드 무대' },
     capoeira:  { name:'카포에라 무대', cat:'공연', time:'시간 확정 전', desc:'무술과 음악이 어우러진 카포에라 공연이에요.' },
     kpop:      { name:'케이팝 댄스 무대', cat:'공연', time:'시간 확정 전', desc:'댄스 동아리의 케이팝 커버 무대예요.' },
     band:      { name:'밴드 무대', cat:'공연', time:'시간 확정 전', desc:'밴드 동아리의 라이브 공연이에요.' },
@@ -50,18 +52,12 @@ const CONFIG = {
     party:     { name:'뒷풀이', cat:'뒷풀이', time:'축제 종료 후', desc:'축제를 마무리하며 함께 모이는 시간이에요.' },
     info:      { name:'안내 데스크', cat:'편의', desc:'지도, 분실물, 문의는 이곳에서 도와드려요.' },
     photo:     { name:'레드카펫 포토존', cat:'편의', desc:'트로피를 들고 레드카펫 위에서 사진을 남겨 보세요.' },
-    f4Office: { name:'사무실', cat:'부스', wait:true, desc:'4층 사무실에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f4Dasoni: { name:'다소니', cat:'부스', wait:true, desc:'4층 다소니에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f4Dorandoran: { name:'도란도란', cat:'부스', wait:true, desc:'4층 도란도란에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f4Neoulgaji: { name:'너울가지', cat:'부스', wait:true, desc:'4층 너울가지에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    f4Daon: { name:'다온', cat:'부스', wait:true, desc:'4층 다온에서 운영되는 부스예요.', promo:'부스 소개를 준비 중이에요.' },
-    fB1Raon: { name: '라온', cat:'부스', wait: true, desc: 'B1층 라온에서 운영되는 부스예요.', promo: '부스 소개를 준비 중이에요.' },
   },
 
   // 지도 수정 안내:
   // - c:[왼쪽 열, 오른쪽 열], r:[위쪽 행, 아래쪽 행]이며 끝 숫자는 포함하지 않아요.
   // - 예: c:[5,9], r:[0,4] = 5열부터 8열, 0행부터 3행을 차지하는 공간.
-  // - cols/rows는 전체 격자 크기예요. B1·1F·4F·5F는 현재 20열×14행입니다.
+  // - cols/rows는 전체 격자 크기예요. B1·1F·8F·5F는 현재 20열×14행입니다.
   // - type:'booth'는 클릭 가능한 부스, type:'facility'는 선으로만 표시되는 구조물입니다.
   // - type:'amenity'는 초록색 편의시설, type:'show'는 분홍색 공연 공간입니다.
   // - type:'blocked'는 사용할 수 없는 공간이며 X 하나로 표시됩니다.
@@ -69,19 +65,17 @@ const CONFIG = {
   floors: [
     // ===== B1층 지도 =====
     // spots: 실제 지도에 보이는 영역. rooms: 부스 클릭 시 열 상세 정보와 연결.
-    { id:'B1', label:'지하 1층', note:'라온·움에서 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
-      { type:'booth', name:'청소년공감센터 움', c:[9,20], r:[0,14], room:'um' },
-      { type:'booth', name:'라온', c:[1,9], r:[10,14], room:'raon' },
+    { id:'B1', label:'지하 1층', note:'청소년공감센터 움에서 공연을 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
+      { type:'booth', name:'예술분과 공연', c:[9,20], r:[0,14], room:'um' },
       { type:'facility', name:'화장실', c:[0,3], r:[4,7], v:1 },
       { type:'facility', name:'엘베', c:[4,6], r:[4,7], v:1 },
       { type:'facility', name:'계단', c:[6,9], r:[4,7], v:1 },
       { type:'blocked', c:[0,9], r:[0,4] } ],
       rooms:[
-      { id:'um', name:'청소년공감센터 움', area:'1/10/15/21', items:['capoeira','kpop','band'] },
-      { id:'raon', name:'라온', area: '11/2/15/10', items: ['fB1Raon'] } ]
+      { id:'um', name:'예술분과 공연', area:'1/10/15/21', items:['artshow'] } ]
     },
     // ===== 1층 지도 =====
-    { id:'1F', label:'1층', note:'도서관과 카페를 중심으로 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
+    { id:'1F', label:'1층', note:'꿈샘부터 먹거리TF까지 동아리 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
       // 첨부한 단순화 스케치 기준: 상단 큰 도서관, 중앙 복도, 하단 카페
       { type:'amenity', name:'도서관', c:[8,20], r:[0,6] },
       { type:'facility', name:'화장실', c:[0,4], r:[3,6], v:1 },
@@ -91,47 +85,33 @@ const CONFIG = {
       { type:'facility', name:'정문', c:[18,20], r:[6,8], v:1 },
       { type:'facility', name:'계단', c:[0,2], r:[9,14], v:1 },
       { type:'amenity', name:'카페', c:[2,20], r:[8,14] } ], rooms:[
-      { id:'desk', name:'로비', area:'1/1/2/2', items:['info'] },
-      { id:'carpet', name:'로비 중앙', area:'1/2/2/4', items:['photo'] },
-      { id:'hall', name:'메인 홀', area:'2/1/4/3', items:['food','party'] },
-      { id:'r1-1', name:'동아리실 1-1', area:'1/4/2/5', items:['treasure'] },
-      { id:'r1-2', name:'동아리실 1-2', area:'2/3/3/5', items:['booth5'] },
-      { id:'r1-3', name:'동아리실 1-3', area:'3/3/4/5', items:['booth6'] } ]},
+      { id:'desk', name:'안내 데스크', area:'1/1/2/2', items:['info'] },
+      { id:'carpet', name:'레드카펫 포토존', area:'1/2/2/4', items:['photo'] },
+      { id:'ggumsaem', name:'꿈샘 부스', area:'2/1/4/3', items:['ggumsaem'] },
+      { id:'angels', name:'천사들의 합창 노래방 부스', area:'1/4/2/5', items:['angels'] },
+      { id:'aureum', name:'아름터 체험 부스', area:'2/3/3/5', items:['aureum'] },
+      { id:'painting', name:'파인트리클럽 부스', area:'3/3/4/5', items:['painting'] },
+      { id:'rotary', name:'신한로타랙트클럽 부스', area:'4/3/5/5', items:['rotary'] },
+      { id:'preview', name:'프리뷰 운영 부스', area:'5/3/6/5', items:['preview'] },
+      { id:'rcy', name:'RCY 운영 부스', area:'6/3/7/5', items:['rcy'] },
+      { id:'doremi', name:'도레미코프로젝트 부스', area:'7/3/8/5', items:['doremi'] },
+      { id:'foodtf', name:'먹거리TF 부스', area:'8/3/9/5', items:['foodtf'] }]},
     // ===== 3층 지도 =====
-    { id:'3F', label:'3층', note:'동아리실 3-1에 부스가 있어요.', rooms:[
-      { id:'r3-1', name:'동아리실 3-1', area:'1/4/3/5', items:['booth9'] },
+    { id:'3F', label:'3층', note:'교류팅 관람하는 층이에요.', rooms:[
       { id:'c3', name:'계단·화장실', area:'3/1/4/5' }]},
-    // ===== 4층 지도 =====
-    { id:'4F', label:'4층', note:'입주 공간마다 부스가 들어가요.', layout:'grid-map', cols:20, rows:14, spots:[
-      // 부스 공간: 노란색 카드이며 클릭할 수 있습니다.
-      { type:'facility', name:'사무실', c:[9,20], r:[0,7], room:'office' },
-      { type:'booth', name:'다소니', c:[3,6], r:[9,14], v:1, room:'dasoni' },
-      { type:'booth', name:'도란도란', c:[6,10], r:[9,14],room:'dorandoran' },
-      { type:'booth', name:'너울가지', c:[10,17], r:[9,14], room:'neoulgaji' },
-      { type:'booth', name:'다온', c:[17,20], r:[9,14], room:'daon' },
-      { type:'facility', name:'화장실', c:[0,4], r:[5,7] },
-      { type:'facility', name:'엘리베이터', c:[5,7], r:[5,7], v:1 },
-      { type:'facility', name:'계단', c:[7,9], r:[5,7], v:1 },
-      { type:'facility', name:'계단', c:[0,3], r:[9,14] },
-
-      // 좌측 상단의 의미 없는 공간을 하나의 X 구역으로 표시
-      { type:'blocked', c:[0,9], r:[0,5] } ], rooms:[
-      { id:'office', name:'사무실', area:'1/10/8/21', items:['f4Office'] },
-      { id:'dasoni', name:'다소니', area:'10/6/15/8', items:['f4Dasoni'] },
-      { id:'dorandoran', name:'도란 도란', area:'10/8/15/11', items:['f4Dorandoran'] },
-      { id:'neoulgaji', name:'너울가지', area:'10/11/15/18', items:['f4Neoulgaji'] },
-      { id:'daon', name:'다온', area:'10/18/15/21', items:['f4Daon'] } ]}
-    ,
     // ===== 5층 지도 =====
     { id:'5F', label:'5층', note:'청운위 주최 방탈출 프로그램이 5층 가람·마루·온누리·한울·미리내에서 진행돼요.', rooms:[
-      { id:'escape-5f', name:'가람·마루·온누리·한울·미리내', items:['escape'] } ]}
+      { id:'escape-5f', name:'가람·마루·온누리·한울·미리내', items:['escape'] }]},
+    // ===== 8층 지도 =====
+    { id:'8F', label:'8층', note:'교류팅 관람하는 층이에요.', layout:'grid-map', cols:20, rows:14, rooms:[
+      { id:'8f-matching', name:'교류팅 공간', area:'1/1/20/14', items:['solo','cooking'] } ]}
   ]
 };
 const GOOGLE_SCRIPT_URL = CONFIG.applicationsEndpoint;
 // 분류별 색: c = 진한 강조색, f = 카드 채움색
 const CATS  = { '부스':'#E9C35A', '공연':'#E58AA6', '강연':'#7FB2E8', '교류팅':'#A996E6', '뒷풀이':'#E9A878', '편의':'#7FCBA9' };
 const FILLS = { '부스':'#FAF0D2', '공연':'#F8DDE4', '강연':'#DDE9F5', '교류팅':'#E8E2F6', '뒷풀이':'#F6E1CC', '편의':'#D8EFE4' };
-const FLOOR_COLORS = { B1:'#F6E3A6', '1F':'#F4CCD4', '3F':'#C9DAF4', '4F':'#F4D3B3', '5F':'#BFC8F7' };
+const FLOOR_COLORS = { B1:'#F6E3A6', '1F':'#F4CCD4', '3F':'#C9DAF4', '8F':'#F4D3B3', '5F':'#BFC8F7' };
 const PREFIX = { '부스':'B', '공연':'S', '강연':'L', '교류팅':'M', '뒷풀이':'P', '편의':'I' };
 const CODE = {};
 (() => { const n = {}; Object.entries(CONFIG.items).forEach(([k,v]) => { n[v.cat] = (n[v.cat]||0) + 1; CODE[k] = PREFIX[v.cat] + String(n[v.cat]).padStart(2,'0'); }); })();
@@ -219,7 +199,6 @@ function renderFloors(){
 }
 function renderPlan(){
   const f = floorOf(state.floor);
-  $('#plan').classList.toggle('floor-ready', state.floor === '5F');
   const booths = f.rooms.flatMap(r => (r.items || [])
     .filter(k => CONFIG.items[k] && CONFIG.items[k].cat === '부스')
     .map(k => ({ room: r, key: k, item: CONFIG.items[k] })));
