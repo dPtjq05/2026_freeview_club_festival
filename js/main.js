@@ -27,28 +27,28 @@ const CONFIG = {
   timeline: [
     { cat:'강연', title:'학술분과 강연', time:'', floor:'5F', sum:'학술분과에서 준비한 강연' },
     { cat:'공연', title:'예술분과 공연', time:'', floor:'B1', sum:'예술분과의 무대 공연' },
-    { cat:'부스', title:'봉사분과 부스', time:'', floor:'1F', sum:'봉사분과에서 운영하는 체험 부스' },
-    { cat:'교류팅', title:'교류팅', time:'', floor:'8F', sum:'동아리 친구들과 함께하는 교류의 시간' },
-    { cat:'부스', title:'청운위 부스', time:'', floor:'5F', sum:'청운위 자체기획 프로그램' }
+    { cat:'부스', title:'봉사분과 부스', time:'15:30–17:30', floor:'1F', sum:'봉사분과에서 운영하는 체험 부스' },
+    { cat:'교류팅', title:'교류팅 부스', time:'15:30–17:30', floor:'8F', sum:'동아리 친구들과 함께하는 교류의 시간' },
+    { cat:'부스', title:'청운위 부스', time:'15:30–17:30', floor:'5F', sum:'청운위 자체기획 프로그램' }
   ],
   items: {
-    ggumsaem:  { name:'꿈샘', cat:'부스', wait:false, desc:'무인 부스로 꿈샘을 소개하는 포스터와 홍보물을 전시하고 안내해요.', promo:'꿈샘 소개 포스터 · 홍보물 전시 부스' },
-    angels:    { name:'천사들의 합창', cat:'부스', wait:false, desc:'1층 노래방 부스에서 운영하는 무인 부스예요.', promo:'노래방 시설을 활용한 합창 부스' },
-    aureum:    { name:'아름터', cat:'부스', wait:false, desc:'무인 부스에서 여러 학과 연계 체험을 운영해요.', promo:'수리 카드 게임 · 힌트 카드 노트북 암호풀기 · 색 손목지 제작 · 정체성 완성 카드 구매 · 모루꽃과 편지 작성' },
-    painting:  { name:'파인트리클럽', cat:'부스', wait:false, desc:'무인 부스에서 영어 밸런스 게임과 참여형 포스트잇 활동을 운영해요.', promo:'영어 밸런스 게임 · 영어 질문 카드 · 자신의 생각 포스트잇 작성' },
-    rotary:    { name:'신한로타랙트클럽', cat:'부스', wait:false, desc:'무인 부스로 로타랙트 동아리를 소개하는 포스터와 홍보물을 전시해요.', promo:'로타랙트 소개 포스터 · 홍보물 전시 부스' },
-    preview:   { name:'프리뷰', cat:'부스', wait:true, desc:'직접 운영하는 부스예요. 프로필 촬영 카드와 포토 부스, 우드락 활동을 연결해 운영해요.', promo:'학교 로고 조합 포토 부스 · 인스타 포스팅용 우드락 제작 이벤트' },
-    rcy:       { name:'RCY', cat:'부스', wait:true, desc:'직접 운영하는 부스예요. 영화관 콘셉트의 긴급 상황 대피 체험과 퀴즈 활동을 진행해요.', promo:'영화관 긴급상황 대피 체험 · 관련 상식·교양 퀴즈 활동' },
-    doremi:    { name:'도레미코프로젝트', cat:'부스', wait:true, desc:'직접 운영하는 부스예요. 재활용 자재로 화분을 만들고 도심 농업을 체험해요.', promo:'재활용 자재 화분 제작 · 화분과 도시 농업 체험 · 재활용 제품 인식 개선 활동' },
-    foodtf:    { name:'먹거리TF', cat:'부스', wait:true, desc:'날씨와 현장 상황에 맞춰 방문자에게 나눔할 수 있는 먹거리 부스를 운영해요.', promo:'먹거리 부스 방문자 대상 팜플렛 제공 및 나눔 활동' },
-    escape:    { name:'방탈출 : 사라진 차곡을 쫓아서', cat:'부스', wait:true, desc:'청운위에서 자체기획한 방탈출 프로그램이에요. 5층 전체를 사용하며 팀 단위로 입장해요.', promo:'6~8명이 한 팀일 때 가장 재밌어요. 6명 이상 모였을 때만 출발가능합니다.' },
-    artshow:   { name:'예술분과 공연', cat:'부스', wait:false, desc:'청소년공감센터 움에서 카포에라, 케이팝 댄스, 밴드 공연을 한 칸의 부스형 안내로 확인할 수 있어요.', promo:'카포에라 · 케이팝 댄스 · 밴드 무대' },
+    ggumsaem:  { name:'꿈샘', cat:'부스', time:'15:30–17:30', wait:false, desc:'무인 부스로 꿈샘을 소개하는 포스터와 홍보물을 전시하고 안내해요.', promo:'꿈샘 소개 포스터 · 홍보물 전시 부스' },
+    angels:    { name:'천사들의 합창', cat:'부스', time:'15:30–17:30', wait:false, desc:'1층 노래방 부스에서 운영하는 무인 부스예요.', promo:'노래방 시설을 활용한 합창 부스' },
+    aureum:    { name:'아름터', cat:'부스', time:'15:30–17:30', wait:false, desc:'무인 부스에서 여러 학과 연계 체험을 운영해요.', promo:'수리 카드 게임 · 힌트 카드 노트북 암호풀기 · 색 손목지 제작 · 정체성 완성 카드 구매 · 모루꽃과 편지 작성' },
+    painting:  { name:'파인트리클럽', cat:'부스', time:'15:30–17:30', wait:false, desc:'무인 부스에서 영어 밸런스 게임과 참여형 포스트잇 활동을 운영해요.', promo:'영어 밸런스 게임 · 영어 질문 카드 · 자신의 생각 포스트잇 작성' },
+    rotary:    { name:'신한로타랙트클럽', cat:'부스', time:'15:30–17:30', wait:false, desc:'무인 부스로 로타랙트 동아리를 소개하는 포스터와 홍보물을 전시해요.', promo:'로타랙트 소개 포스터 · 홍보물 전시 부스' },
+    preview:   { name:'프리뷰', cat:'부스', time:'15:30–17:30', wait:true, desc:'직접 운영하는 부스예요. 프로필 촬영 카드와 포토 부스, 우드락 활동을 연결해 운영해요.', promo:'학교 로고 조합 포토 부스 · 인스타 포스팅용 우드락 제작 이벤트' },
+    rcy:       { name:'RCY', cat:'부스', time:'15:30–17:30', wait:true, desc:'직접 운영하는 부스예요. 영화관 콘셉트의 긴급 상황 대피 체험과 퀴즈 활동을 진행해요.', promo:'영화관 긴급상황 대피 체험 · 관련 상식·교양 퀴즈 활동' },
+    doremi:    { name:'도레미코프로젝트', cat:'부스', time:'15:30–17:30', wait:true, desc:'직접 운영하는 부스예요. 재활용 자재로 화분을 만들고 도심 농업을 체험해요.', promo:'재활용 자재 화분 제작 · 화분과 도시 농업 체험 · 재활용 제품 인식 개선 활동' },
+    foodtf:    { name:'먹거리TF', cat:'부스', time:'15:30–17:30', wait:true, desc:'날씨와 현장 상황에 맞춰 방문자에게 나눔할 수 있는 먹거리 부스를 운영해요.', promo:'먹거리 부스 방문자 대상 팜플렛 제공 및 나눔 활동' },
+    escape:    { name:'방탈출 : 사라진 차곡을 쫓아서', cat:'부스', time:'15:30–17:30', wait:true, desc:'청운위에서 자체기획한 방탈출 프로그램이에요. 5층 전체를 사용하며 팀 단위로 입장해요.', promo:'6~8명이 한 팀일 때 가장 재밌어요. 6명 이상 모였을 때만 출발가능합니다.' },
+    artshow:   { name:'예술분과 공연', cat:'부스', time:'15:30–17:30', wait:false, desc:'청소년공감센터 움에서 카포에라, 케이팝 댄스, 밴드 공연을 한 칸의 부스형 안내로 확인할 수 있어요.', promo:'카포에라 · 케이팝 댄스 · 밴드 무대' },
     capoeira:  { name:'카포에라 무대', cat:'공연', time:'시간 확정 전', desc:'무술과 음악이 어우러진 카포에라 공연이에요.' },
     kpop:      { name:'케이팝 댄스 무대', cat:'공연', time:'시간 확정 전', desc:'댄스 동아리의 케이팝 커버 무대예요.' },
     band:      { name:'밴드 무대', cat:'공연', time:'시간 확정 전', desc:'밴드 동아리의 라이브 공연이에요.' },
     lecture:   { name:'경제 학회 강연', cat:'강연', time:'시간 확정 전', desc:'경제 학회가 준비한 강연이에요.' },
-    solo:      { name:'솔로지옥 컨셉 교류 게임', cat:'교류팅', presign:true, desc:'처음 만나는 친구들과 함께하는 교류 게임이에요. 사전 신청자만 참여해요.' },
-    cooking:   { name:'커플메이킹 쿠킹 클래스', cat:'교류팅', presign:true, desc:'둘씩 짝을 지어 함께 요리하는 클래스예요. 사전 신청자만 참여해요.' },
+    matchingView: { name:'교류팅 관람 부스', cat:'부스', time:'15:30–17:30', wait:false, desc:'지하 1층에서 교류팅 진행을 관람하고 응원할 수 있는 공간이에요.', promo:'교류팅 관람 · 응원 부스' },
+    matching:  { name:'교류팅 부스', cat:'부스', time:'15:30–17:30', wait:false, desc:'8층에서 진행되는 교류팅 프로그램 부스예요.', promo:'교류팅 진행 부스' },
     party:     { name:'뒷풀이', cat:'뒷풀이', time:'축제 종료 후', desc:'축제를 마무리하며 함께 모이는 시간이에요.' },
     info:      { name:'안내 데스크', cat:'편의', desc:'지도, 분실물, 문의는 이곳에서 도와드려요.' },
     photo:     { name:'레드카펫 포토존', cat:'편의', desc:'트로피를 들고 레드카펫 위에서 사진을 남겨 보세요.' },
@@ -65,14 +65,15 @@ const CONFIG = {
   floors: [
     // ===== B1층 지도 =====
     // spots: 실제 지도에 보이는 영역. rooms: 부스 클릭 시 열 상세 정보와 연결.
-    { id:'B1', label:'지하 1층', note:'청소년공감센터 움에서 공연을 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
+    { id:'B1', label:'지하 1층', note:'청소년공감센터 움에서 공연을 운영하고 교류팅 관람 부스를 마련해요.', layout:'grid-map', cols:20, rows:14, spots:[
       { type:'booth', name:'예술분과 공연', c:[9,20], r:[0,14], room:'um' },
       { type:'facility', name:'화장실', c:[0,3], r:[4,7], v:1 },
       { type:'facility', name:'엘베', c:[4,6], r:[4,7], v:1 },
       { type:'facility', name:'계단', c:[6,9], r:[4,7], v:1 },
       { type:'blocked', c:[0,9], r:[0,4] } ],
       rooms:[
-      { id:'um', name:'예술분과 공연', area:'1/10/15/21', items:['artshow'] } ]
+      { id:'um', name:'예술분과 공연', area:'1/10/15/21', items:['artshow'] },
+      { id:'b1-matching-view', name:'교류팅 관람 부스', area:'1/1/10/9', items:['matchingView'] } ]
     },
     // ===== 1층 지도 =====
     { id:'1F', label:'1층', note:'꿈샘부터 먹거리TF까지 동아리 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, spots:[
@@ -97,14 +98,14 @@ const CONFIG = {
       { id:'doremi', name:'도레미코프로젝트 부스', area:'7/3/8/5', items:['doremi'] },
       { id:'foodtf', name:'먹거리TF 부스', area:'8/3/9/5', items:['foodtf'] }]},
     // ===== 3층 지도 =====
-    { id:'3F', label:'3층', note:'교류팅 관람하는 층이에요.', rooms:[
+    { id:'3F', label:'3층', note:'계단과 화장실을 확인할 수 있어요.', rooms:[
       { id:'c3', name:'계단·화장실', area:'3/1/4/5' }]},
     // ===== 5층 지도 =====
     { id:'5F', label:'5층', note:'청운위 주최 방탈출 프로그램이 5층 가람·마루·온누리·한울·미리내에서 진행돼요.', rooms:[
       { id:'escape-5f', name:'가람·마루·온누리·한울·미리내', items:['escape'] }]},
     // ===== 8층 지도 =====
-    { id:'8F', label:'8층', note:'교류팅 관람하는 층이에요.', layout:'grid-map', cols:20, rows:14, rooms:[
-      { id:'8f-matching', name:'교류팅 공간', area:'1/1/20/14', items:['solo','cooking'] } ]}
+    { id:'8F', label:'8층', note:'8층에서 교류팅 부스를 운영해요.', layout:'grid-map', cols:20, rows:14, rooms:[
+      { id:'8f-matching', name:'교류팅 부스', area:'1/1/20/14', items:['matching'] } ]}
   ]
 };
 const GOOGLE_SCRIPT_URL = CONFIG.applicationsEndpoint;
